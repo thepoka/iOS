@@ -1,0 +1,19 @@
+# Xcode build artefacts
+build/
+DerivedData/
+*.xcuserstate
+*.xccheckout
+xcuserdata/
+
+# Xcode user-specific settings (don't commit these)
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# macOS
+.DS_Store
+
+# Swift Package Manager (if added later)
+.build/
+Package.resolved
+
+# xcodegen — keep project.yml, ignore generated project user data

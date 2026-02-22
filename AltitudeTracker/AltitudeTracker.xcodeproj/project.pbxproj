@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30E8BDA07DBB8793FAC549DF /* AltitudeTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45875A1C54EABA9A5922F7 /* AltitudeTrackerApp.swift */; };
+		3C141937664174F70906DE3B /* DataExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38685BD1001FE509A7F44F1 /* DataExporter.swift */; };
+		499BA10FEB486A5818B485F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A27048DEF38F86CDE27C4 /* ContentView.swift */; };
+		525CF1FC0AC7349B1F939E1A /* MapTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27759B6962AD14426AA68B /* MapTrackingView.swift */; };
+		86CD412A48AB2115F2383AC3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1F612E03FCB58F021DD82C /* LocationManager.swift */; };
+		935E06B19A9F295755CD8704 /* StatsOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83989A6BDFA29D37011DD015 /* StatsOverlayView.swift */; };
+		C70AF8D9D5C79441B4306D9E /* LocationPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D1B227D343410877F2C097 /* LocationPoint.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		20A84957E723830DBC9A0A97 /* AltitudeTracker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AltitudeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B1F612E03FCB58F021DD82C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		539A27048DEF38F86CDE27C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		83989A6BDFA29D37011DD015 /* StatsOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsOverlayView.swift; sourceTree = "<group>"; };
+		A5D1B227D343410877F2C097 /* LocationPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPoint.swift; sourceTree = "<group>"; };
+		AC45875A1C54EABA9A5922F7 /* AltitudeTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltitudeTrackerApp.swift; sourceTree = "<group>"; };
+		CF27759B6962AD14426AA68B /* MapTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTrackingView.swift; sourceTree = "<group>"; };
+		F38685BD1001FE509A7F44F1 /* DataExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExporter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0B767A2C9BA837AF7AC201D3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4B1F612E03FCB58F021DD82C /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		421DBED726E73A5950EA12C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5D1B227D343410877F2C097 /* LocationPoint.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8D2608DFFE72CFBD939BD040 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F38685BD1001FE509A7F44F1 /* DataExporter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A210ADA48569088B7AA5C5A7 /* AltitudeTracker */ = {
+			isa = PBXGroup;
+			children = (
+				AC45875A1C54EABA9A5922F7 /* AltitudeTrackerApp.swift */,
+				0B767A2C9BA837AF7AC201D3 /* Managers */,
+				421DBED726E73A5950EA12C2 /* Models */,
+				8D2608DFFE72CFBD939BD040 /* Utilities */,
+				F82133374E749CE37A4F6527 /* Views */,
+			);
+			path = AltitudeTracker;
+			sourceTree = "<group>";
+		};
+		D06F36D2A2D037853AB51EAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20A84957E723830DBC9A0A97 /* AltitudeTracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC05197EB86E793A0519F96E = {
+			isa = PBXGroup;
+			children = (
+				A210ADA48569088B7AA5C5A7 /* AltitudeTracker */,
+				D06F36D2A2D037853AB51EAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F82133374E749CE37A4F6527 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				539A27048DEF38F86CDE27C4 /* ContentView.swift */,
+				CF27759B6962AD14426AA68B /* MapTrackingView.swift */,
+				83989A6BDFA29D37011DD015 /* StatsOverlayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75B10B910DC83F2618DFCA7D /* AltitudeTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA440BAC660A6AB9637654E9 /* Build configuration list for PBXNativeTarget "AltitudeTracker" */;
+			buildPhases = (
+				C1D7404317E7339D6DDF2518 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AltitudeTracker;
+			packageProductDependencies = (
+			);
+			productName = AltitudeTracker;
+			productReference = 20A84957E723830DBC9A0A97 /* AltitudeTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8249DBEE8AD84A0213F434AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					75B10B910DC83F2618DFCA7D = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = 00D06075D57A5B3337A0DA9C /* Build configuration list for PBXProject "AltitudeTracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = DC05197EB86E793A0519F96E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75B10B910DC83F2618DFCA7D /* AltitudeTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1D7404317E7339D6DDF2518 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30E8BDA07DBB8793FAC549DF /* AltitudeTrackerApp.swift in Sources */,
+				499BA10FEB486A5818B485F3 /* ContentView.swift in Sources */,
+				3C141937664174F70906DE3B /* DataExporter.swift in Sources */,
+				86CD412A48AB2115F2383AC3 /* LocationManager.swift in Sources */,
+				C70AF8D9D5C79441B4306D9E /* LocationPoint.swift in Sources */,
+				525CF1FC0AC7349B1F939E1A /* MapTrackingView.swift in Sources */,
+				935E06B19A9F295755CD8704 /* StatsOverlayView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3BBBCF4329B16581860A22A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = AltitudeTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thepoka.AltitudeTracker;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		428A160188E5A6B6DCFBCFD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = AltitudeTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.thepoka.AltitudeTracker;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6EE2FF4ECE6EA77698C0E503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		994C009E02D5712788A40298 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00D06075D57A5B3337A0DA9C /* Build configuration list for PBXProject "AltitudeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EE2FF4ECE6EA77698C0E503 /* Debug */,
+				994C009E02D5712788A40298 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DA440BAC660A6AB9637654E9 /* Build configuration list for PBXNativeTarget "AltitudeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBBCF4329B16581860A22A9 /* Debug */,
+				428A160188E5A6B6DCFBCFD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8249DBEE8AD84A0213F434AD /* Project object */;
+}
