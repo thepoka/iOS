@@ -105,130 +105,119 @@ struct ContentView: View {
     }
 
     // MARK: - Control Bar
+    //
+    // Fixed 3-slot layout so the centre button never moves:
+    //   [left circle]   [── centre capsule ──]   [right circle]
+    //
+    // idle:     trash (if data) | START  | export (if data)
+    // tracking: stop            | PAUSE  | export (if data)
+    // paused:   stop            | RESUME | export (if data)
 
-    @ViewBuilder
     private var controlBar: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 0) {
 
-            // Clear / trash (only when there's data and not actively tracking)
-            if locationManager.totalPoints > 0 && locationManager.trackingState == .idle {
-                Button {
-                    showClearConfirm = true
-                } label: {
-                    Image(systemName: "trash")
-                        .font(.title3)
-                        .foregroundStyle(.red)
-                        .frame(width: 48, height: 48)
-                        .background(.ultraThinMaterial, in: Circle())
-                }
-                .transition(.scale.combined(with: .opacity))
-            }
+            // LEFT slot — always 56 pt wide
+            leftButton
+                .frame(width: 56, height: 56)
 
             Spacer()
 
-            // Main tracking button
-            trackingButton
+            // CENTRE — morphs between Start / Pause / Resume
+            centreCapsuleButton
 
             Spacer()
 
-            // Export (only when there's data)
-            if locationManager.totalPoints > 0 {
-                Button {
-                    showExportSheet = true
-                } label: {
-                    Image(systemName: "square.and.arrow.up")
-                        .font(.title3)
-                        .foregroundStyle(.blue)
-                        .frame(width: 48, height: 48)
-                        .background(.ultraThinMaterial, in: Circle())
-                }
-                .transition(.scale.combined(with: .opacity))
-            }
+            // RIGHT slot — always 56 pt wide
+            rightButton
+                .frame(width: 56, height: 56)
         }
-        .animation(.spring(response: 0.3), value: locationManager.totalPoints)
+        .animation(.spring(response: 0.35, dampingFraction: 0.8),
+                   value: locationManager.trackingState == .idle)
+        .animation(.spring(response: 0.35, dampingFraction: 0.8),
+                   value: locationManager.totalPoints)
+    }
+
+    // Centre capsule: label & colour change, position stays fixed
+    private var centreCapsuleButton: some View {
+        let config = centreButtonConfig
+        return Button(action: config.action) {
+            HStack(spacing: 8) {
+                Image(systemName: config.icon)
+                Text(config.label)
+                    .fontWeight(.semibold)
+            }
+            .font(.headline)
+            .foregroundStyle(.white)
+            .padding(.horizontal, 32)
+            .padding(.vertical, 15)
+            .background(config.color, in: Capsule())
+            .shadow(color: config.color.opacity(0.45), radius: 10, y: 4)
+        }
+        .contentTransition(.symbolEffect(.replace))
         .animation(.spring(response: 0.3), value: locationManager.trackingState == .idle)
     }
 
-    @ViewBuilder
-    private var trackingButton: some View {
+    private struct CentreButtonConfig {
+        let icon: String
+        let label: String
+        let color: Color
+        let action: () -> Void
+    }
+
+    private var centreButtonConfig: CentreButtonConfig {
         switch locationManager.trackingState {
         case .idle:
-            Button {
-                locationManager.startTracking()
-            } label: {
-                HStack(spacing: 8) {
-                    Image(systemName: "record.circle")
-                    Text("Start")
-                        .fontWeight(.semibold)
-                }
-                .padding(.horizontal, 28)
-                .padding(.vertical, 14)
-                .background(.red, in: Capsule())
-                .foregroundStyle(.white)
-                .font(.headline)
-            }
-            .shadow(color: .red.opacity(0.4), radius: 8, y: 4)
-
+            return CentreButtonConfig(icon: "record.circle", label: "Start",
+                                      color: .red, action: locationManager.startTracking)
         case .tracking:
-            HStack(spacing: 12) {
-                // Pause
-                Button {
-                    locationManager.pauseTracking()
-                } label: {
-                    Image(systemName: "pause.fill")
-                        .font(.title3)
-                        .foregroundStyle(.orange)
-                        .frame(width: 48, height: 48)
-                        .background(.ultraThinMaterial, in: Circle())
-                }
-
-                // Stop
-                Button {
-                    locationManager.stopTracking()
-                } label: {
-                    HStack(spacing: 8) {
-                        Image(systemName: "stop.circle.fill")
-                        Text("Stop")
-                            .fontWeight(.semibold)
-                    }
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 14)
-                    .background(.primary, in: Capsule())
-                    .foregroundStyle(.background)
-                    .font(.headline)
-                }
-            }
-
+            return CentreButtonConfig(icon: "pause.fill", label: "Pause",
+                                      color: .orange, action: locationManager.pauseTracking)
         case .paused:
-            HStack(spacing: 12) {
-                // Resume
-                Button {
-                    locationManager.resumeTracking()
-                } label: {
-                    HStack(spacing: 8) {
-                        Image(systemName: "play.fill")
-                        Text("Resume")
-                            .fontWeight(.semibold)
-                    }
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 14)
-                    .background(.green, in: Capsule())
-                    .foregroundStyle(.white)
-                    .font(.headline)
-                }
-
-                // Stop
-                Button {
-                    locationManager.stopTracking()
-                } label: {
-                    Image(systemName: "stop.fill")
-                        .font(.title3)
-                        .foregroundStyle(.red)
-                        .frame(width: 48, height: 48)
-                        .background(.ultraThinMaterial, in: Circle())
-                }
-            }
+            return CentreButtonConfig(icon: "play.fill", label: "Resume",
+                                      color: .green, action: locationManager.resumeTracking)
         }
+    }
+
+    // Left slot: trash when idle+data, stop when active
+    @ViewBuilder
+    private var leftButton: some View {
+        switch locationManager.trackingState {
+        case .idle:
+            if locationManager.totalPoints > 0 {
+                Button { showClearConfirm = true } label: {
+                    circleIcon("trash", color: .red)
+                }
+                .transition(.scale.combined(with: .opacity))
+            } else {
+                Color.clear  // invisible placeholder — keeps layout stable
+            }
+        case .tracking, .paused:
+            Button(action: locationManager.stopTracking) {
+                circleIcon("stop.fill", color: .red)
+            }
+            .transition(.scale.combined(with: .opacity))
+        }
+    }
+
+    // Right slot: export when there is data
+    @ViewBuilder
+    private var rightButton: some View {
+        if locationManager.totalPoints > 0 {
+            Button { showExportSheet = true } label: {
+                circleIcon("square.and.arrow.up", color: .blue)
+            }
+            .transition(.scale.combined(with: .opacity))
+        } else {
+            Color.clear
+        }
+    }
+
+    private func circleIcon(_ name: String, color: Color) -> some View {
+        Image(systemName: name)
+            .font(.system(size: 18, weight: .medium))
+            .foregroundStyle(color)
+            .frame(width: 52, height: 52)
+            .background(.ultraThinMaterial, in: Circle())
     }
 
     // MARK: - Export
