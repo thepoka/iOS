@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C9633C756F564E92D371D93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B47F396209EA47882AC927EC /* Assets.xcassets */; };
 		30E8BDA07DBB8793FAC549DF /* AltitudeTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45875A1C54EABA9A5922F7 /* AltitudeTrackerApp.swift */; };
 		3C141937664174F70906DE3B /* DataExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38685BD1001FE509A7F44F1 /* DataExporter.swift */; };
 		499BA10FEB486A5818B485F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A27048DEF38F86CDE27C4 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 		83989A6BDFA29D37011DD015 /* StatsOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsOverlayView.swift; sourceTree = "<group>"; };
 		A5D1B227D343410877F2C097 /* LocationPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPoint.swift; sourceTree = "<group>"; };
 		AC45875A1C54EABA9A5922F7 /* AltitudeTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltitudeTrackerApp.swift; sourceTree = "<group>"; };
+		B47F396209EA47882AC927EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF27759B6962AD14426AA68B /* MapTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTrackingView.swift; sourceTree = "<group>"; };
 		F38685BD1001FE509A7F44F1 /* DataExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				AC45875A1C54EABA9A5922F7 /* AltitudeTrackerApp.swift */,
+				B47F396209EA47882AC927EC /* Assets.xcassets */,
 				0B767A2C9BA837AF7AC201D3 /* Managers */,
 				421DBED726E73A5950EA12C2 /* Models */,
 				8D2608DFFE72CFBD939BD040 /* Utilities */,
@@ -98,6 +101,7 @@
 			buildConfigurationList = DA440BAC660A6AB9637654E9 /* Build configuration list for PBXNativeTarget "AltitudeTracker" */;
 			buildPhases = (
 				C1D7404317E7339D6DDF2518 /* Sources */,
+				F0B30C2B8E01195419B5D704 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -142,6 +146,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0B30C2B8E01195419B5D704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9633C756F564E92D371D93 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C1D7404317E7339D6DDF2518 /* Sources */ = {

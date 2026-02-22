@@ -39,6 +39,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.thepoka.AltitudeTracker
         INFOPLIST_FILE: AltitudeTracker/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     dependencies: []
     scheme:
       testTargets: []
