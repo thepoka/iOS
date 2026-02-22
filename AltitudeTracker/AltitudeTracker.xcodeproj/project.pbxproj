@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		20A84957E723830DBC9A0A97 /* AltitudeTracker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AltitudeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20A84957E723830DBC9A0A97 /* AltitudeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltitudeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1F612E03FCB58F021DD82C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		539A27048DEF38F86CDE27C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		83989A6BDFA29D37011DD015 /* StatsOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsOverlayView.swift; sourceTree = "<group>"; };
@@ -122,11 +122,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
-				TargetAttributes = {
-					75B10B910DC83F2618DFCA7D = {
-						DevelopmentTeam = "";
-					};
-				};
 			};
 			buildConfigurationList = 00D06075D57A5B3337A0DA9C /* Build configuration list for PBXProject "AltitudeTracker" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -138,7 +133,6 @@
 			);
 			mainGroup = DC05197EB86E793A0519F96E;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -181,6 +175,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = SGNLKM2N7Z;
 				INFOPLIST_FILE = AltitudeTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -198,6 +193,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = SGNLKM2N7Z;
 				INFOPLIST_FILE = AltitudeTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
