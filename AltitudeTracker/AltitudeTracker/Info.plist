@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Location permissions (REQUIRED) -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>AltitudeTracker uses your location to record GPS coordinates and altitude along your route.</string>
+
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>AltitudeTracker uses your location in the background to continue recording altitude when the app is not in the foreground.</string>
+
+    <!-- Allow background location updates (for continuous tracking) -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+    </array>
+
+    <!-- Motion & Fitness for barometric altimeter -->
+    <key>NSMotionUsageDescription</key>
+    <string>AltitudeTracker uses the barometric altimeter for more accurate altitude readings.</string>
+
+    <!-- Standard iOS keys -->
+    <key>CFBundleDisplayName</key>
+    <string>AltitudeTracker</string>
+
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+
+    <key>UIRequiredDeviceCapabilities</key>
+    <array>
+        <string>location-services</string>
+        <string>gps</string>
+    </array>
+
+    <key>UILaunchScreen</key>
+    <dict/>
+</dict>
+</plist>
