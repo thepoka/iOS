@@ -1,7 +1,8 @@
 import Foundation
 import CoreLocation
 
-struct LocationPoint: Identifiable, Codable {
+struct LocationPoint: Identifiable, Codable, Equatable {
+    static func == (lhs: LocationPoint, rhs: LocationPoint) -> Bool { lhs.id == rhs.id }
     let id: UUID
     let timestamp: Date
     let latitude: Double

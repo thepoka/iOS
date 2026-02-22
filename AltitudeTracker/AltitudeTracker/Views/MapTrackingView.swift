@@ -3,12 +3,16 @@ import MapKit
 
 // MARK: - Altitude Annotation
 
-struct AltitudeAnnotation: Identifiable {
+struct AltitudeAnnotation: Identifiable, Hashable {
     let id: UUID
     let coordinate: CLLocationCoordinate2D
     let altitude: Double
     let isStart: Bool
     let isEnd: Bool
+
+    // Hashable using only id — CLLocationCoordinate2D is not Hashable
+    func hash(into hasher: inout Hasher) { hasher.combine(id) }
+    static func == (lhs: AltitudeAnnotation, rhs: AltitudeAnnotation) -> Bool { lhs.id == rhs.id }
 }
 
 // MARK: - MapTrackingView
@@ -18,7 +22,7 @@ struct MapTrackingView: View {
     let points: [LocationPoint]
     let currentLocation: LocationPoint?
 
-    @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
+    @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var selectedAnnotation: AltitudeAnnotation?
 
     // Sample every N points for altitude pin annotations (avoid clutter)
@@ -72,7 +76,7 @@ struct MapTrackingView: View {
         Map(position: $cameraPosition, selection: $selectedAnnotation) {
 
             // Current user location pulsing dot
-            UserLocation(fallback: .automatic)
+            UserAnnotation()
 
             // Route polyline
             if routeCoordinates.count > 1 {
