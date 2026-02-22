@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var showShareSheet = false
     @State private var exportError: String?
     @State private var showPermissionAlert = false
+    @State private var showSettings = false
     @State private var timerTick = Date()
 
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -34,6 +35,28 @@ struct ContentView: View {
                     isTracking: locationManager.trackingState == .tracking
                 )
                 .padding(.top, 8)
+                Spacer()
+            }
+
+            // Settings gear — top-right corner, only available when idle
+            VStack {
+                HStack {
+                    Spacer()
+                    Button { showSettings = true } label: {
+                        Image(systemName: "gearshape.fill")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundStyle(
+                                locationManager.trackingState == .idle
+                                ? Color.primary
+                                : Color.primary.opacity(0.25)
+                            )
+                            .frame(width: 44, height: 44)
+                            .background(.ultraThinMaterial, in: Circle())
+                    }
+                    .disabled(locationManager.trackingState != .idle)
+                    .padding(.top, 16)
+                    .padding(.trailing, 16)
+                }
                 Spacer()
             }
 
@@ -66,6 +89,10 @@ struct ContentView: View {
             if status == .denied || status == .restricted {
                 showPermissionAlert = true
             }
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView(settings: locationManager.settings)
+                .presentationDetents([.medium])
         }
         .sheet(isPresented: $showExportSheet) {
             ExportSheetView(

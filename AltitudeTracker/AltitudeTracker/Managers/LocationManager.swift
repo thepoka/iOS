@@ -14,6 +14,10 @@ final class LocationManager: NSObject, ObservableObject {
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published var errorMessage: String?
 
+    // MARK: - Settings (shared with SettingsView)
+
+    let settings = TrackingSettings()
+
     // MARK: - Computed Stats
 
     var totalPoints: Int { recordedPoints.count }
@@ -43,7 +47,7 @@ final class LocationManager: NSObject, ObservableObject {
 
     var trackingDuration: TimeInterval {
         guard let first = recordedPoints.first?.timestamp,
-              let last = recordedPoints.last?.timestamp else { return 0 }
+              let last  = recordedPoints.last?.timestamp else { return 0 }
         return last.timeIntervalSince(first)
     }
 
@@ -64,7 +68,6 @@ final class LocationManager: NSObject, ObservableObject {
         super.init()
         clManager.delegate = self
         clManager.desiredAccuracy = kCLLocationAccuracyBest
-        clManager.distanceFilter = 5 // record every 5 meters of movement
         clManager.activityType = .fitness
         authorizationStatus = clManager.authorizationStatus
     }
@@ -79,6 +82,7 @@ final class LocationManager: NSObject, ObservableObject {
         recordedPoints = []
         sessionStart = Date()
         trackingState = .tracking
+        clManager.distanceFilter = settings.distanceFilterMeters
         clManager.startUpdatingLocation()
         startBarometer()
     }
@@ -97,6 +101,7 @@ final class LocationManager: NSObject, ObservableObject {
 
     func resumeTracking() {
         trackingState = .tracking
+        clManager.distanceFilter = settings.distanceFilterMeters
         clManager.startUpdatingLocation()
         startBarometer()
     }
@@ -114,7 +119,6 @@ final class LocationManager: NSObject, ObservableObject {
         guard CMAltimeter.isRelativeAltitudeAvailable() else { return }
         altimeter.startRelativeAltitudeUpdates(to: .main) { [weak self] data, error in
             guard let self, let data, error == nil else { return }
-            // relativeAltitude is relative to session start; add GPS baseline
             let baseGPS = self.recordedPoints.first?.altitudeGPS ?? 0
             self.latestBarometricAltitude = baseGPS + data.relativeAltitude.doubleValue
         }
@@ -138,7 +142,6 @@ extension LocationManager: CLLocationManagerDelegate {
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
 
-        // Filter out inaccurate readings
         guard location.horizontalAccuracy >= 0,
               location.horizontalAccuracy < 50 else { return }
 
